@@ -5,9 +5,12 @@ import { AVISO_MVP } from "@/lib/prevalidacion/seguridad";
 import { cn } from "@/lib/utils";
 import logoEquipo from "@/assets/logo-equipo.png";
 
-/** Estilos compartidos: el elemento activo se marca en suave, nunca relleno sólido. */
+/** Estilos compartidos: el activo usa el color de marca sólido para que sea inequívoco. */
 const ENLACE_BASE =
-  "flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-ink-foreground outline-none transition-colors hover:border-teal/70 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-teal/70 data-[status=active]:border-teal data-[status=active]:bg-teal/15 data-[status=active]:text-teal";
+  "group flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-ink-foreground outline-none transition-colors hover:border-teal/70 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-teal/70 data-[status=active]:border-teal data-[status=active]:bg-teal data-[status=active]:text-teal-foreground data-[status=active]:shadow-sm";
+
+const NUMERO_BASE =
+  "font-mono text-[10px] font-semibold text-teal transition-colors group-data-[status=active]:text-teal-foreground";
 
 
 const NAV = [
@@ -119,9 +122,7 @@ export function Sitio({ children }: { children: ReactNode }) {
           <nav className="hidden items-center gap-2 lg:flex">
             {NAV.map((n, i) => (
               <Link key={n.to} to={n.to} className={ENLACE_BASE}>
-                <span className="font-mono text-[10px] font-semibold text-teal">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className={NUMERO_BASE}>{String(i + 1).padStart(2, "0")}</span>
                 {n.etiqueta}
               </Link>
             ))}
@@ -132,13 +133,13 @@ export function Sitio({ children }: { children: ReactNode }) {
                 aria-expanded={mas}
                 aria-haspopup="menu"
                 className={cn(
-                  "flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium text-ink-foreground outline-none transition-colors focus-visible:ring-2 focus-visible:ring-teal/70",
-                  mas
-                    ? "border-teal bg-teal/15 text-teal"
+                  "group flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium text-ink-foreground outline-none transition-colors focus-visible:ring-2 focus-visible:ring-teal/70",
+                  mas || NAV_MAS.some((n) => pathname === n.to)
+                    ? "border-teal bg-teal text-teal-foreground"
                     : "border-white/20 bg-white/5 hover:border-teal/70 hover:bg-white/10",
                 )}
               >
-                <span className="font-mono text-[10px] font-semibold text-teal">03</span>
+                <span className={NUMERO_BASE}>03</span>
                 El proyecto
                 <ChevronDown className={cn("h-4 w-4 transition-transform", mas && "rotate-180")} />
               </button>
@@ -153,11 +154,9 @@ export function Sitio({ children }: { children: ReactNode }) {
                       to={n.to}
                       role="menuitem"
                       onClick={cerrar}
-                      className="flex items-center gap-2 rounded-sm px-3 py-2 text-sm text-ink-foreground/80 outline-none transition-colors hover:bg-white/10 hover:text-ink-foreground focus-visible:bg-white/10 data-[status=active]:bg-teal/15 data-[status=active]:text-teal"
+                      className="group flex items-center gap-2 rounded-sm px-3 py-2 text-sm text-ink-foreground/80 outline-none transition-colors hover:bg-white/10 hover:text-ink-foreground focus-visible:bg-white/10 data-[status=active]:bg-teal data-[status=active]:text-teal-foreground"
                     >
-                      <span className="font-mono text-[10px] font-semibold text-teal">
-                        {String(i + 4).padStart(2, "0")}
-                      </span>
+                      <span className={NUMERO_BASE}>{String(i + 4).padStart(2, "0")}</span>
                       {n.etiqueta}
                     </Link>
                   ))}
@@ -189,11 +188,9 @@ export function Sitio({ children }: { children: ReactNode }) {
                 key={n.to}
                 to={n.to}
                 onClick={cerrar}
-                className="flex items-center gap-3 rounded-md border border-white/25 bg-white/5 px-3 py-2.5 text-sm font-medium text-ink-foreground data-[status=active]:border-teal data-[status=active]:bg-teal data-[status=active]:text-teal-foreground"
+                className="group flex items-center gap-3 rounded-md border border-white/25 bg-white/5 px-3 py-2.5 text-sm font-medium text-ink-foreground data-[status=active]:border-teal data-[status=active]:bg-teal data-[status=active]:text-teal-foreground"
               >
-                <span className="font-mono text-[10px] font-semibold text-teal">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className={NUMERO_BASE}>{String(i + 1).padStart(2, "0")}</span>
                 {n.etiqueta}
               </Link>
             ))}
@@ -205,11 +202,9 @@ export function Sitio({ children }: { children: ReactNode }) {
                 key={n.to}
                 to={n.to}
                 onClick={cerrar}
-                className="flex items-center gap-3 rounded-md border border-white/25 bg-white/5 px-3 py-2.5 text-sm text-ink-foreground data-[status=active]:border-teal data-[status=active]:bg-teal data-[status=active]:text-teal-foreground"
+                className="group flex items-center gap-3 rounded-md border border-white/25 bg-white/5 px-3 py-2.5 text-sm text-ink-foreground data-[status=active]:border-teal data-[status=active]:bg-teal data-[status=active]:text-teal-foreground"
               >
-                <span className="font-mono text-[10px] font-semibold text-teal">
-                  {String(i + 4).padStart(2, "0")}
-                </span>
+                <span className={NUMERO_BASE}>{String(i + 4).padStart(2, "0")}</span>
                 {n.etiqueta}
               </Link>
             ))}

@@ -33,4 +33,6 @@
 
 ## Siguientes pasos posibles
 - [ ] Publicar el sitio y compartirlo
-- [ ] Pulir detalles visuales o contenido según feedback
+- [x] Pulir detalles visuales o contenido según feedback
+  - [x] Mejorar estado activo del menú de navegación (indicador más claro y sin fondo verdoso)
+- [ ] Pulir más detalles visuales o contenido según feedback
