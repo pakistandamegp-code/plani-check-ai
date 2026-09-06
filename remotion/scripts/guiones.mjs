@@ -78,10 +78,28 @@ export const GUIONES = {
         ],
       },
       {
+        id: "ataques",
+        lineas: [
+          "Antes de cerrar, veamos de qué nos estamos defendiendo.",
+          "Un atacante podría pedir la planilla de otra empresa, subir un archivo con fórmulas escondidas, o repetir el mismo envío para duplicar registros.",
+          "También podría intentar adivinar identificadores, alterar una versión ya presentada, o saturar el sistema con cargas enormes.",
+        ],
+      },
+      {
+        id: "defensas",
+        lineas: [
+          "Contra cada intento hay una defensa concreta.",
+          "El empleador sale de la sesión del servidor, el archivo se acepta solo como texto separado por comas con límite de tamaño, y cada celda se limpia antes de guardarse.",
+          "La llave de idempotencia impide duplicar un envío, los identificadores de ciento veintiocho bits no se pueden adivinar, y ninguna versión se sobrescribe.",
+          "Y si algo pasara, la bitácora guarda actor, fecha, acción y resultado, así se puede reconstruir todo lo ocurrido.",
+        ],
+      },
+      {
         id: "cierre",
         lineas: [
           "Corrija, revalide y repita hasta llegar al estado prevalidada.",
-          "Dos interfaces, cinco controles de seguridad y cada error explicado con el paso exacto para arreglarlo.",
+          "Dos interfaces, seis niveles de reglas, cinco controles de seguridad y cada error explicado con el paso exacto para arreglarlo.",
+          "Sus datos protegidos de punta a punta, en línea con la ley ochenta y uno de dos mil diecinueve.",
         ],
       },
     ],
@@ -94,39 +112,43 @@ export const GUIONES = {
         id: "intro",
         lineas: [
           "Prevalida Planillas, desde el teléfono, de principio a fin.",
+          "Vamos a recorrer la aplicación tal como se ve en la pantalla, paso por paso.",
         ],
       },
       {
-        id: "apis",
+        id: "sesion",
         lineas: [
-          "Detrás hay dos interfaces: una recibe y guarda la planilla, la otra la revisa y explica los hallazgos.",
-          "Sus datos van protegidos: el empleador lo fija el servidor, el archivo se limpia al recibirlo y toda acción queda registrada.",
+          "Paso uno: abrir la sesión de trabajo.",
+          "La aplicación muestra su rol y el empleador, que lo fija el servidor y no se puede cambiar desde el teléfono.",
         ],
       },
       {
         id: "cargar",
         lineas: [
-          "Primero elija la planilla del periodo y súbala desde el teléfono.",
+          "Paso dos: elija el periodo y suba la planilla desde el teléfono.",
           "La demostración usa datos ficticios de trece trabajadores.",
         ],
       },
       {
         id: "validando",
         lineas: [
-          "Al enviarla, el motor revisa estructura, identidad, datos laborales, salarios, consistencia e historial.",
+          "Paso tres: al enviarla, la pantalla muestra el análisis en vivo.",
+          "Primero la recepción segura y la limpieza de celdas.",
+          "Luego los seis niveles de reglas, uno por uno: estructura del archivo, identidad del trabajador, datos laborales, salarios y viáticos, consistencia interna e historial del empleador.",
+          "Al terminar, el evento queda anotado en la bitácora y aparece el resultado.",
         ],
       },
       {
         id: "resultado",
         lineas: [
-          "El resultado separa lo que bloquea de lo que solo hay que revisar.",
+          "Paso cuatro: el resultado separa lo que bloquea de lo que solo hay que revisar.",
           "Seis errores hay que corregirlos; cinco alertas se confirman con un motivo escrito.",
         ],
       },
       {
         id: "corregir",
         lineas: [
-          "Cada error le dice la fila, la columna, el valor que llegó y el valor que se espera.",
+          "Toque un hallazgo y verá la fila, la columna, el valor que llegó y el valor que se espera.",
           "Fila cuatro, número de documento: dice ocho, guion, setecientos cuarenta y dos, guion, ciento dieciocho, y el tipo declarado es pasaporte.",
           "Cámbielo a cédula, o escriba el pasaporte real sin guiones, y guarde la fila.",
         ],
@@ -134,7 +156,7 @@ export const GUIONES = {
       {
         id: "reenviar",
         lineas: [
-          "Envíe la corrección como una versión nueva: la anterior se conserva completa.",
+          "Paso cinco: envíe la corrección como una versión nueva. La anterior se conserva completa.",
         ],
       },
       {
@@ -143,6 +165,22 @@ export const GUIONES = {
           "Vuelva a validar y, cuando no quede ningún error, la planilla queda prevalidada.",
         ],
       },
+      {
+        id: "ataques",
+        lineas: [
+          "Falta lo más importante: cómo protegemos sus datos.",
+          "Alguien podría pedir la planilla de otra empresa, subir un archivo con fórmulas escondidas, repetir un envío para duplicarlo, o intentar adivinar identificadores.",
+        ],
+      },
+      {
+        id: "defensas",
+        lineas: [
+          "Por eso el empleador lo fija el servidor, cada celda se limpia al recibirla, y solo se acepta texto separado por comas con límite de tamaño.",
+          "La llave de idempotencia evita duplicados, los identificadores son de ciento veintiocho bits, ninguna versión se sobrescribe y toda acción queda en la bitácora.",
+          "Prevalida Planillas: su planilla revisada y sus datos protegidos, desde el teléfono.",
+        ],
+      },
     ],
   },
+
 };
