@@ -102,18 +102,17 @@ function Tutorial() {
             <span className="rounded-sm bg-primary px-2.5 py-1 font-mono text-xs font-semibold text-primary-foreground">
               Video 2
             </span>
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">Desde el celular</h2>
-            <span className="font-mono text-xs text-muted-foreground">1 min 10 s · con voz y subtítulos</span>
+            <h2 className="text-2xl font-bold tracking-tight text-foreground">Desde el iPhone</h2>
+            <span className="font-mono text-xs text-muted-foreground">con voz y subtítulos</span>
           </div>
-          <div className="grid gap-6 lg:grid-cols-[auto_1fr] lg:items-center">
-            <div className="mx-auto w-full max-w-[300px] shadow-sm">
-              <Reproductor src={videoMovil.url} titulo="Desde el celular" vertical />
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,360px)_1fr] lg:items-center">
+            <div className="mx-auto w-full max-w-[360px] shadow-sm">
+              <Reproductor src={videoMovil.url} titulo="Recorrido desde el iPhone" vertical />
             </div>
             <div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                El recorrido completo tal como lo vive quien envía la planilla: subir el
-                archivo, ver la revisión de las seis familias de reglas, distinguir los errores bloqueantes de las
-                alertas, corregir el dato indicado, enviar una nueva versión y quedar prevalidada.
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Vea el proceso completo dentro de un iPhone: cargar la planilla, seguir la validación de cada nivel,
+                corregir los hallazgos y enviar una nueva versión protegida.
               </p>
               <Link
                 to="/demo/errores"
@@ -123,58 +122,6 @@ function Tutorial() {
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="mt-14 border-t border-border pt-14">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Cierre</p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">
-            Y lo más importante: cómo protegemos sus datos
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Una planilla contiene cédulas, salarios y datos personales. Esto es lo que el sistema hace para
-            protegerla, qué ataques podría sufrir y cómo se defiende de cada uno.
-          </p>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="rounded-md border border-border bg-card p-5">
-              <h3 className="text-base font-semibold text-foreground">Medidas de seguridad</h3>
-              <ul className="mt-3 space-y-2.5 text-sm text-muted-foreground">
-                <li><span className="font-semibold text-foreground">Sesión por rol:</span> cada usuario solo ve las planillas de su propio empleador; el servidor fija la empresa, nunca quien envía el archivo.</li>
-                <li><span className="font-semibold text-foreground">Cédulas enmascaradas:</span> en los listados solo se muestran los últimos dígitos de la identidad.</li>
-                <li><span className="font-semibold text-foreground">Archivos limitados:</span> solo CSV, con tamaño máximo y columnas esperadas; todo lo demás se rechaza.</li>
-                <li><span className="font-semibold text-foreground">Bitácora de auditoría:</span> cada carga, corrección y consulta queda registrada con fecha y responsable.</li>
-                <li><span className="font-semibold text-foreground">Identificadores no predecibles:</span> nadie puede adivinar la dirección de una planilla ajena.</li>
-              </ul>
-            </div>
-
-            <div className="rounded-md border border-border bg-card p-5">
-              <h3 className="text-base font-semibold text-foreground">Ataques posibles</h3>
-              <ul className="mt-3 space-y-2.5 text-sm text-muted-foreground">
-                <li><span className="font-semibold text-foreground">Archivos maliciosos:</span> un CSV con código escondido o fórmulas que intenten ejecutarse al abrirse.</li>
-                <li><span className="font-semibold text-foreground">Suplantación:</span> alguien que intente hacerse pasar por otro empleador para ver o alterar sus planillas.</li>
-                <li><span className="font-semibold text-foreground">Adivinar identificadores:</span> probar números al azar para acceder a planillas ajenas.</li>
-                <li><span className="font-semibold text-foreground">Sobrecarga:</span> enviar archivos enormes o muchas solicitudes para dejar el servicio fuera de línea.</li>
-                <li><span className="font-semibold text-foreground">Robo de sesión:</span> usar la credencial de otra persona para operar en su nombre.</li>
-              </ul>
-            </div>
-
-            <div className="rounded-md border border-border bg-card p-5">
-              <h3 className="text-base font-semibold text-foreground">Cómo nos defendemos</h3>
-              <ul className="mt-3 space-y-2.5 text-sm text-muted-foreground">
-                <li><span className="font-semibold text-foreground">Sanitización:</span> el contenido del CSV se limpia y se trata siempre como texto, nunca como código ejecutable.</li>
-                <li><span className="font-semibold text-foreground">Control de acceso:</span> el servidor verifica la sesión y el empleador en cada llamada antes de responder.</li>
-                <li><span className="font-semibold text-foreground">Errores seguros:</span> los mensajes de error no revelan rutas internas ni datos de otros empleadores.</li>
-                <li><span className="font-semibold text-foreground">Límites estrictos:</span> tamaño, tipo y cantidad de filas controlados para frenar la sobrecarga.</li>
-                <li><span className="font-semibold text-foreground">Trazabilidad:</span> si algo raro ocurre, la bitácora permite saber quién hizo qué y cuándo.</li>
-              </ul>
-            </div>
-          </div>
-
-          <p className="mt-6 rounded-md border border-border bg-secondary/40 p-4 text-sm text-muted-foreground">
-            <span className="font-semibold text-foreground">Nota:</span> este es un MVP académico y demostrativo.
-            Las medidas descritas reflejan buenas prácticas de la Ley 81/2019 de protección de datos personales,
-            pero no sustituyen una certificación de seguridad ni la conexión con los sistemas institucionales.
-          </p>
         </div>
 
         <h2 className="mt-12 text-2xl font-bold tracking-tight text-foreground">Los cinco pasos, en texto</h2>
