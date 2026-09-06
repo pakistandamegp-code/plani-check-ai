@@ -51,10 +51,11 @@ export const Cierre: React.FC<{ display: string }> = ({ display }) => {
         <Sequence from={54} layout="none">
           <Aparece estilo={{ marginTop: 30 }}>
             <p style={{ fontFamily: mono, fontSize: 22, color: C.muted, lineHeight: 1.6 }}>
-              Dos APIs · cinco controles de seguridad · cada error explicado
+              Dos APIs · seis niveles de reglas · cinco controles de seguridad
               <br />
-              con el paso exacto para arreglarlo, también en
-              <span style={{ color: C.teal }}> /demo/errores</span>.
+              y cada error explicado con el paso exacto para arreglarlo.
+              <br />
+              <span style={{ color: C.teal }}>Sus datos protegidos de punta a punta, en línea con la Ley 81 de 2019.</span>
             </p>
           </Aparece>
         </Sequence>

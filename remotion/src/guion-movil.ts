@@ -3,126 +3,185 @@ export type LineaGuion = { texto: string; inicio: number; dur: number };
 export type EscenaGuion = { id: string; inicio: number; dur: number; lineas: LineaGuion[] };
 
 export const AUDIO = "audio/movil.mp3";
-export const TOTAL = 3033;
+export const TOTAL = 5229;
 export const ESCENAS: EscenaGuion[] = [
   {
     "id": "intro",
     "inicio": 18,
-    "dur": 148,
+    "dur": 305,
     "lineas": [
       {
         "texto": "Prevalida Planillas, desde el teléfono, de principio a fin.",
         "inicio": 18,
-        "dur": 148
+        "dur": 149
+      },
+      {
+        "texto": "Vamos a recorrer la aplicación tal como se ve en la pantalla, paso por paso.",
+        "inicio": 179,
+        "dur": 144
       }
     ]
   },
   {
-    "id": "apis",
-    "inicio": 188,
-    "dur": 532,
+    "id": "sesion",
+    "inicio": 345,
+    "dur": 369,
     "lineas": [
       {
-        "texto": "Detrás hay dos interfaces: una recibe y guarda la planilla, la otra la revisa y explica los hallazgos.",
-        "inicio": 188,
-        "dur": 263
+        "texto": "Paso uno: abrir la sesión de trabajo.",
+        "inicio": 345,
+        "dur": 119
       },
       {
-        "texto": "Sus datos van protegidos: el empleador lo fija el servidor, el archivo se limpia al recibirlo y toda acción queda registrada.",
-        "inicio": 463,
-        "dur": 257
+        "texto": "La aplicación muestra su rol y el empleador, que lo fija el servidor y no se puede cambiar desde el teléfono.",
+        "inicio": 476,
+        "dur": 238
       }
     ]
   },
   {
     "id": "cargar",
-    "inicio": 742,
-    "dur": 339,
+    "inicio": 736,
+    "dur": 315,
     "lineas": [
       {
-        "texto": "Primero elija la planilla del periodo y súbala desde el teléfono.",
-        "inicio": 742,
-        "dur": 192
+        "texto": "Paso dos: elija el periodo y suba la planilla desde el teléfono.",
+        "inicio": 736,
+        "dur": 189
       },
       {
         "texto": "La demostración usa datos ficticios de trece trabajadores.",
-        "inicio": 946,
-        "dur": 135
+        "inicio": 937,
+        "dur": 114
       }
     ]
   },
   {
     "id": "validando",
-    "inicio": 1103,
-    "dur": 249,
+    "inicio": 1073,
+    "dur": 940,
     "lineas": [
       {
-        "texto": "Al enviarla, el motor revisa estructura, identidad, datos laborales, salarios, consistencia e historial.",
-        "inicio": 1103,
-        "dur": 249
+        "texto": "Paso tres: al enviarla, la pantalla muestra el análisis en vivo.",
+        "inicio": 1073,
+        "dur": 168
+      },
+      {
+        "texto": "Primero la recepción segura y la limpieza de celdas.",
+        "inicio": 1253,
+        "dur": 144
+      },
+      {
+        "texto": "Luego los seis niveles de reglas, uno por uno: estructura del archivo, identidad del trabajador, datos laborales, salarios y viáticos, consistencia interna e historial del empleador.",
+        "inicio": 1409,
+        "dur": 415
+      },
+      {
+        "texto": "Al terminar, el evento queda anotado en la bitácora y aparece el resultado.",
+        "inicio": 1836,
+        "dur": 177
       }
     ]
   },
   {
     "id": "resultado",
-    "inicio": 1374,
-    "dur": 389,
+    "inicio": 2035,
+    "dur": 429,
     "lineas": [
       {
-        "texto": "El resultado separa lo que bloquea de lo que solo hay que revisar.",
-        "inicio": 1374,
-        "dur": 144
+        "texto": "Paso cuatro: el resultado separa lo que bloquea de lo que solo hay que revisar.",
+        "inicio": 2035,
+        "dur": 210
       },
       {
         "texto": "Seis errores hay que corregirlos; cinco alertas se confirman con un motivo escrito.",
-        "inicio": 1530,
-        "dur": 233
+        "inicio": 2257,
+        "dur": 207
       }
     ]
   },
   {
     "id": "corregir",
-    "inicio": 1785,
-    "dur": 780,
+    "inicio": 2486,
+    "dur": 778,
     "lineas": [
       {
-        "texto": "Cada error le dice la fila, la columna, el valor que llegó y el valor que se espera.",
-        "inicio": 1785,
-        "dur": 199
+        "texto": "Toque un hallazgo y verá la fila, la columna, el valor que llegó y el valor que se espera.",
+        "inicio": 2486,
+        "dur": 195
       },
       {
         "texto": "Fila cuatro, número de documento: dice ocho, guion, setecientos cuarenta y dos, guion, ciento dieciocho, y el tipo declarado es pasaporte.",
-        "inicio": 1996,
-        "dur": 336
+        "inicio": 2693,
+        "dur": 350
       },
       {
         "texto": "Cámbielo a cédula, o escriba el pasaporte real sin guiones, y guarde la fila.",
-        "inicio": 2344,
-        "dur": 221
+        "inicio": 3055,
+        "dur": 209
       }
     ]
   },
   {
     "id": "reenviar",
-    "inicio": 2587,
-    "dur": 181,
+    "inicio": 3286,
+    "dur": 207,
     "lineas": [
       {
-        "texto": "Envíe la corrección como una versión nueva: la anterior se conserva completa.",
-        "inicio": 2587,
-        "dur": 181
+        "texto": "Paso cinco: envíe la corrección como una versión nueva. La anterior se conserva completa.",
+        "inicio": 3286,
+        "dur": 207
       }
     ]
   },
   {
     "id": "listo",
-    "inicio": 2790,
-    "dur": 203,
+    "inicio": 3515,
+    "dur": 197,
     "lineas": [
       {
         "texto": "Vuelva a validar y, cuando no quede ningún error, la planilla queda prevalidada.",
-        "inicio": 2790,
-        "dur": 203
+        "inicio": 3515,
+        "dur": 197
+      }
+    ]
+  },
+  {
+    "id": "ataques",
+    "inicio": 3734,
+    "dur": 503,
+    "lineas": [
+      {
+        "texto": "Falta lo más importante: cómo protegemos sus datos.",
+        "inicio": 3734,
+        "dur": 132
+      },
+      {
+        "texto": "Alguien podría pedir la planilla de otra empresa, subir un archivo con fórmulas escondidas, repetir un envío para duplicarlo, o intentar adivinar identificadores.",
+        "inicio": 3878,
+        "dur": 359
+      }
+    ]
+  },
+  {
+    "id": "defensas",
+    "inicio": 4259,
+    "dur": 930,
+    "lineas": [
+      {
+        "texto": "Por eso el empleador lo fija el servidor, cada celda se limpia al recibirla, y solo se acepta texto separado por comas con límite de tamaño.",
+        "inicio": 4259,
+        "dur": 323
+      },
+      {
+        "texto": "La llave de idempotencia evita duplicados, los identificadores son de ciento veintiocho bits, ninguna versión se sobrescribe y toda acción queda en la bitácora.",
+        "inicio": 4594,
+        "dur": 366
+      },
+      {
+        "texto": "Prevalida Planillas: su planilla revisada y sus datos protegidos, desde el teléfono.",
+        "inicio": 4972,
+        "dur": 217
       }
     ]
   }

@@ -10,6 +10,7 @@ import { Cierre } from "./scenes/Cierre";
 import { Apis } from "./scenes/Apis";
 import { Seguridad } from "./scenes/Seguridad";
 import { Correccion } from "./scenes/Correccion";
+import { Ataques, Defensas } from "./scenes/Amenazas";
 import { MarcaAgua } from "./components/Marca";
 import { AUDIO, ESCENAS, TOTAL, escena } from "./guion-tutorial";
 import { C } from "./theme";
@@ -129,6 +130,12 @@ export const MainVideo: React.FC = () => (
     </Escena>
     <Escena id="paso5">
       <PasoApi datos={PASO5} display={display} retrasos={retrasosPaso("paso5")} />
+    </Escena>
+    <Escena id="ataques">
+      <Ataques display={display} />
+    </Escena>
+    <Escena id="defensas">
+      <Defensas display={display} />
     </Escena>
     <Escena id="cierre">
       <Cierre display={display} />
