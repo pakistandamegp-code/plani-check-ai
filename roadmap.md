@@ -36,4 +36,4 @@
 - [x] Pulir detalles visuales o contenido según feedback
   - [x] Mejorar estado activo del menú de navegación (indicador más claro y sin fondo verdoso)
 - [ ] Pulir más detalles visuales o contenido según feedback
-  - [ ] Cierre en /tutorial: medidas de seguridad, ataques posibles y defensas
+  - [x] Cierre en /tutorial: medidas de seguridad, ataques posibles y defensas
