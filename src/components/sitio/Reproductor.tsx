@@ -157,7 +157,7 @@ export function Reproductor({
       onMouseMove={mover}
       onMouseLeave={() => reproduciendo && setControlesVisibles(false)}
       className={cn(
-        "group relative select-none overflow-hidden rounded-lg border border-border bg-ink text-ink-foreground shadow-md outline-none",
+        "group @container relative select-none overflow-hidden rounded-lg border border-border bg-ink text-ink-foreground shadow-md outline-none",
         vertical ? "aspect-[9/16]" : "aspect-video",
         !mostrarControles && "cursor-none",
       )}
@@ -223,7 +223,7 @@ export function Reproductor({
       {/* Controles */}
       <div
         className={cn(
-          "absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent px-3 pb-2 pt-10 transition-opacity duration-300",
+          "absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent px-3 pb-3 pt-12 transition-opacity duration-300",
           mostrarControles ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
@@ -258,45 +258,47 @@ export function Reproductor({
           </div>
         </div>
 
-        {/* Fila de botones */}
-        <div className="mt-1 flex items-center gap-1">
-          <button
-            type="button"
-            onClick={alternar}
-            aria-label={reproduciendo ? "Pausar" : "Reproducir"}
-            className="grid h-8 w-8 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
-          >
-            {reproduciendo ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-          </button>
-          <button
-            type="button"
-            onClick={() => saltarSegundos(-10)}
-            aria-label="Retroceder 10 segundos"
-            className="grid h-8 w-8 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
-          >
-            <RotateCcw className="h-4 w-4" />
-          </button>
-          <button
-            type="button"
-            onClick={() => saltarSegundos(10)}
-            aria-label="Adelantar 10 segundos"
-            className="grid h-8 w-8 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
-          >
-            <RotateCw className="h-4 w-4" />
-          </button>
+        {/* Fila de botones: se adapta al ancho del propio reproductor */}
+        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 gap-y-1">
+          <div className="flex min-w-0 items-center gap-1.5">
+            <button
+              type="button"
+              onClick={alternar}
+              aria-label={reproduciendo ? "Pausar" : "Reproducir"}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
+            >
+              {reproduciendo ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            </button>
+            <button
+              type="button"
+              onClick={() => saltarSegundos(-10)}
+              aria-label="Retroceder 10 segundos"
+              className="hidden h-9 w-9 shrink-0 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15 @md:grid"
+            >
+              <RotateCcw className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => saltarSegundos(10)}
+              aria-label="Adelantar 10 segundos"
+              className="hidden h-9 w-9 shrink-0 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15 @md:grid"
+            >
+              <RotateCw className="h-4 w-4" />
+            </button>
 
-          <span className="ml-1 font-mono text-xs text-ink-foreground/80">
-            {formato(tiempo)} <span className="text-ink-foreground/50">/ {formato(duracion)}</span>
-          </span>
-          <span className="ml-2 hidden truncate text-xs text-ink-foreground/60 sm:inline">{titulo}</span>
+            <span className="ml-1 truncate font-mono text-xs text-ink-foreground/80">
+              {formato(tiempo)} <span className="text-ink-foreground/50">/ {formato(duracion)}</span>
+            </span>
+            <span className="ml-2 hidden truncate text-xs text-ink-foreground/60 @xl:inline">{titulo}</span>
+          </div>
 
-          <div className="ml-auto flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-1.5">
             <div className="flex items-center">
               <button
                 type="button"
                 aria-label={mudo ? "Activar sonido" : "Silenciar"}
                 onClick={alternarMudo}
-                className="grid h-8 w-8 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
               >
                 {mudo ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
               </button>
@@ -308,14 +310,14 @@ export function Reproductor({
                 value={mudo ? 0 : volumen}
                 onChange={(e) => cambiarVolumen(Number(e.target.value))}
                 aria-label="Volumen"
-                className="hidden h-1 w-16 cursor-pointer accent-teal sm:block"
+                className="hidden h-1 w-16 cursor-pointer accent-teal @lg:block"
               />
             </div>
             <button
               type="button"
               onClick={cambiarVelocidad}
               aria-label={`Velocidad de reproducción: ${velocidad}x. Pulse para cambiar.`}
-              className="flex h-8 items-center gap-1 rounded-sm px-1.5 font-mono text-xs text-ink-foreground transition-colors hover:bg-white/15"
+              className="flex h-9 shrink-0 items-center gap-1 rounded-sm px-2 font-mono text-xs text-ink-foreground transition-colors hover:bg-white/15"
             >
               <Gauge className="h-4 w-4" />
               {velocidad}x
@@ -324,7 +326,7 @@ export function Reproductor({
               type="button"
               aria-label="Pantalla completa"
               onClick={pantallaCompleta}
-              className="grid h-8 w-8 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-sm text-ink-foreground transition-colors hover:bg-white/15"
             >
               <Maximize className="h-4 w-4" />
             </button>
