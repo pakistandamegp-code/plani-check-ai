@@ -41,7 +41,7 @@ const EQUIPO = [
 
 export function Marca({ claro = false }: { claro?: boolean }) {
   return (
-    <Link to="/" className="flex min-w-0 items-center gap-3">
+    <Link to="/" className="flex min-w-0 items-center gap-3.5">
       <img
         src={logoEquipo}
         alt=""
@@ -49,18 +49,18 @@ export function Marca({ claro = false }: { claro?: boolean }) {
         height={1024}
         loading="lazy"
         aria-hidden
-        className="h-9 w-9 shrink-0 rounded-md"
+        className="h-12 w-12 shrink-0 rounded-lg"
       />
       <span className="min-w-0 leading-tight">
         <span
           className={cn(
-            "block truncate font-display text-sm font-700 font-semibold tracking-tight",
+            "block truncate font-display text-base font-700 font-semibold tracking-tight",
             claro ? "text-ink-foreground" : "text-foreground",
           )}
         >
           Prevalida Planillas
         </span>
-        <span className={cn("block truncate text-[11px]", claro ? "text-ink-foreground/70" : "text-muted-foreground")}>
+        <span className={cn("block truncate text-xs", claro ? "text-ink-foreground/70" : "text-muted-foreground")}>
           Caso 7 · Demostración
         </span>
       </span>
