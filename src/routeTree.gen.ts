@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArquitecturaRouteImport } from './routes/arquitectura'
+import { Route as DiagramaRouteImport } from './routes/diagrama'
 import { Route as EquipoRouteImport } from './routes/equipo'
 import { Route as InstalarHerramientasRouteImport } from './routes/instalar-herramientas'
 import { Route as NormativaRouteImport } from './routes/normativa'
@@ -32,6 +33,11 @@ const IndexRoute = IndexRouteImport.update({
 const ArquitecturaRoute = ArquitecturaRouteImport.update({
   id: '/arquitectura',
   path: '/arquitectura',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagramaRoute = DiagramaRouteImport.update({
+  id: '/diagrama',
+  path: '/diagrama',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EquipoRoute = EquipoRouteImport.update({
@@ -98,6 +104,7 @@ const DemoPlanillasPlanillaIdRoute = DemoPlanillasPlanillaIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arquitectura': typeof ArquitecturaRoute
+  '/diagrama': typeof DiagramaRoute
   '/equipo': typeof EquipoRoute
   '/instalar-herramientas': typeof InstalarHerramientasRoute
   '/normativa': typeof NormativaRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/arquitectura': typeof ArquitecturaRoute
+  '/diagrama': typeof DiagramaRoute
   '/equipo': typeof EquipoRoute
   '/instalar-herramientas': typeof InstalarHerramientasRoute
   '/normativa': typeof NormativaRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/arquitectura': typeof ArquitecturaRoute
+  '/diagrama': typeof DiagramaRoute
   '/equipo': typeof EquipoRoute
   '/instalar-herramientas': typeof InstalarHerramientasRoute
   '/normativa': typeof NormativaRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/arquitectura'
+    | '/diagrama'
     | '/equipo'
     | '/instalar-herramientas'
     | '/normativa'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/arquitectura'
+    | '/diagrama'
     | '/equipo'
     | '/instalar-herramientas'
     | '/normativa'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/arquitectura'
+    | '/diagrama'
     | '/equipo'
     | '/instalar-herramientas'
     | '/normativa'
@@ -198,6 +210,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArquitecturaRoute: typeof ArquitecturaRoute
+  DiagramaRoute: typeof DiagramaRoute
   EquipoRoute: typeof EquipoRoute
   InstalarHerramientasRoute: typeof InstalarHerramientasRoute
   NormativaRoute: typeof NormativaRoute
@@ -226,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/arquitectura'
       fullPath: '/arquitectura'
       preLoaderRoute: typeof ArquitecturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagrama': {
+      id: '/diagrama'
+      path: '/diagrama'
+      fullPath: '/diagrama'
+      preLoaderRoute: typeof DiagramaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/equipo': {
@@ -318,6 +338,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArquitecturaRoute: ArquitecturaRoute,
+  DiagramaRoute: DiagramaRoute,
   EquipoRoute: EquipoRoute,
   InstalarHerramientasRoute: InstalarHerramientasRoute,
   NormativaRoute: NormativaRoute,
